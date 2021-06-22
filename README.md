@@ -23,12 +23,11 @@ https://mobilesaudejira.atlassian.net/wiki/spaces/PUB/pages/959217692/Guia+Sa+de
 
 
 ### Primeiros Passos
-1. Possuir NodeJS Versão 12 instalado no equipamento;
+1. Possuir NodeJS Versão 12 instalado no equipamento (utilize o NVM para manipular o $PATH para alterar a versão vigente do Node em seu equipamento)
 2. Baixar o projeto em sua máquina local;
 3. na pasta raiz do projeto (onde se encontram os arquivos "package.json") e rodar o comando "npm ci";
 
 ### Como usar
-> Importante: Sempre excluir os arquivos da pasta "file_log" a cada nova rodada de execução do validador.
 
 1. Ter em "mãos" os arquivos referente aos:
   * Planos;
@@ -42,16 +41,15 @@ https://mobilesaudejira.atlassian.net/wiki/spaces/PUB/pages/959217692/Guia+Sa+de
   * Tipo de Rede >> "tipo_rede_credenciada.csv"
   * Rede Credenciada >> "rede_credenciada.csv" **
   
-> ** **Neste arquivo é importante abrir o arquivo no LibreOffice e substituir ";" por " "(espaço);**
+  ** **Atenção**
+> ** **Em caso de erros verique os arquivos e substitua ";" (ponto e virgula por " "(espaço), este caracter é de uso exclusivo pra delimitar as colunas;**
 
-3. Dentro da pasta "src" rode (recomendado) na ordem os seguintes comandos:
-> Importante: Verificar as críticas pois podem influenciar na validação do arquivo de "rede_credenciada.csv"
+3. Dentro da pasta raiz do projeto rode o comando:
   * $ bash valida_arquivos_carga.sh
   
 4. Verificar os arquivos de log na pasta "file_logs";
 
-5. Caso seja necessário, excluir todos os arquivos da pasta "file_logs" e rodar novamente os scripts;
-
+5. Em caso de nova necessidade de novos testes executar o passso 3 novamente;
 
 
 
