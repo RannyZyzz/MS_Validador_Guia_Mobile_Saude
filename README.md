@@ -27,6 +27,19 @@ https://mobilesaudejira.atlassian.net/wiki/spaces/PUB/pages/959217692/Guia+Sa+de
 2. Baixar o projeto em sua máquina local;
 3. na pasta raiz do projeto (onde se encontram os arquivos "package.json") e rodar o comando "npm ci";
 
+### Commitar no projeto
+Foi adicionada ferramenta de padronização de commit, ao comitar utilize o comando:
+
+>"npx cz" ou "npm rum commit" (caso utilize o yarn basta substituir)
+
+Se faz utilização das convenções da comunidade para commit pelas documentações:
+https://commitlint.js.org/#/concepts-commit-conventions
+
+Porém o uso da mesma apartir do comando é muito intuitiva:
+
+![image](https://user-images.githubusercontent.com/44988166/123156435-a919ca80-d43f-11eb-9677-aaf642b9ffcb.png)
+
+
 ### Como usar
 
 1. Ter em "mãos" os arquivos referente aos:
