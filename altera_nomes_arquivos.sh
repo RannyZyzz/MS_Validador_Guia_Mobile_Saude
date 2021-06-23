@@ -17,10 +17,10 @@ sleep 1;
 
 #Procura arquivos de Tipo rede credenciada
 echo "Alterando arquivo: Tipo rede credenciada";
-find ${path}${file} -type f -name "*tprede*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
-find ${path}${file} -type f -name "*TPREDE*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
 find ${path}${file} -type f -name "*tipo*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
 find ${path}${file} -type f -name "*TIPO*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
+find ${path}${file} -type f -name "*tprede*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
+find ${path}${file} -type f -name "*TPREDE*" -exec mv {} ${path}${file}/tipo_rede_credenciada.csv \;
 sleep 1;
 
 #Procura arquivos de Rede Credenciada
