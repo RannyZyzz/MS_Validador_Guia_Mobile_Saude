@@ -26,81 +26,51 @@ async function processLineByLine(positionArray,functionFieldOpen,functionFieldCl
     rl.removeAllListeners();
 }
 
-//Valida Headers - Coluna CBO;
-let arrayCodigoCBO = [];
+let arrayHeaderEspecialidades = ['codigo_cbo','descricao','versao_layout','empresa_id'];
+
+let arrayValue = [];
 
 function openCodigoCbo(value,numberLine){
-    if(value.toLowerCase() != 'codigo_cbo'){
-        arrayCodigoCBO.push('\n'+'campo "codigo_cbo" - incorreto ou não encontrado',value,numberLine);
-        console.log(value);
+    if(value.toLowerCase() != arrayHeaderEspecialidades[0]){
+        arrayValue.push('\n'+'campo "codigo_cbo" - incorreto ou não encontrado',arrayHeaderEspecialidades[0],numberLine);
     }
-}
-
-function closeCodigoCbo(){
-    if(arrayCodigoCBO != ''){
-        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayCodigoCBO);
-    }
-}
-
-processLineByLine(0,openCodigoCbo,closeCodigoCbo,0);
-
-
-
-//Valida Headers - descricao;
-let arrayDescricao = [];
+};
 
 function openDescricao(value,numberLine){
-    if(value.toLowerCase() != 'descricao'){
-        arrayDescricao.push('\n'+'campo "descricao" - incorreto ou não encontrado',value,numberLine);
-        console.log(value);
+    if(value.toLowerCase() != arrayHeaderEspecialidades[1]){
+        arrayValue.push('\n'+'campo "descricao" - incorreto ou não encontrado',arrayHeaderEspecialidades[1],numberLine);
     }
-}
-
-function closeDescricao(){
-    if(arrayDescricao != ''){
-        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayDescricao);
-    }
-}
-
-processLineByLine(1,openDescricao,closeDescricao,0);
-
-
-
-
-//Valida Headers - versao_layout;
-let arrayVersaoLayout = [];
+};
 
 function openVersaoLayout(value,numberLine){
-    if(value.toLowerCase() != 'versao_layout'){
-        arrayVersaoLayout.push('\n'+'campo "versao_layout" - incorreto ou não encontrado',value,numberLine);
-        console.log(value);
+    if(value.toLowerCase() != arrayHeaderEspecialidades[2]){
+        arrayValue.push('\n'+'campo "versao_layout" - incorreto ou não encontrado',arrayHeaderEspecialidades[2],numberLine);
     }
-}
-
-function closeVersaoLayout(){
-    if(arrayVersaoLayout != ''){
-        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayVersaoLayout);
-    }
-}
-
-processLineByLine(2,openVersaoLayout,closeVersaoLayout,0);
-
-
-
-//Valida Headers - empresa_id;
-let arrayEmpresaId = [];
+};
 
 function openEmpresaId(value,numberLine){
-    if(value.toLowerCase() != 'empresa_id'){
-        arrayEmpresaId.push('\n'+'campo "empresa_id" - incorreto ou não encontrado',value,numberLine);
-        console.log(value);
+    if(value.toLowerCase() != arrayHeaderEspecialidades[3]){
+        arrayValue.push('\n'+'campo "empresa_id" - incorreto ou não encontrado',arrayHeaderEspecialidades[2],numberLine);
+    }
+};
+
+function closeArrayValue(){
+    
+    if(arrayValue.length > 1){
+        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayHeaderEspecialidades);
+    }
+
+    if(arrayValue != ''){
+        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayValue);
+        arrayValue = [];
     }
 }
 
-function closeEmpresaId(){
-    if(arrayEmpresaId != ''){
-        impressao.gravaNoArquivo('../file_logs/log-header-especialidades.csv',arrayEmpresaId);
-    }
-}
-
-processLineByLine(3,openEmpresaId,closeEmpresaId,0);
+//codigo_cbo
+processLineByLine(0,openCodigoCbo,closeArrayValue,0);
+//descricao
+processLineByLine(1,openDescricao,closeArrayValue,0);
+//versao_layout
+processLineByLine(2,openVersaoLayout,closeArrayValue,0);
+//empresa_id
+processLineByLine(3,openEmpresaId,closeArrayValue,0);
